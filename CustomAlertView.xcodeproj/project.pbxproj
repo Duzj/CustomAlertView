@@ -17,6 +17,7 @@
 		FB83B98A20C56A5600C665A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB83B98920C56A5600C665A2 /* main.m */; };
 		FB83B99420C56A5700C665A2 /* CustomAlertViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB83B99320C56A5700C665A2 /* CustomAlertViewUITests.m */; };
 		FB83B9A520C56DB500C665A2 /* TCustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB83B9A420C56DB500C665A2 /* TCustomAlertView.m */; };
+		FB83B9A920C6176500C665A2 /* CALayer+test.m in Sources */ = {isa = PBXBuildFile; fileRef = FB83B9A820C6176500C665A2 /* CALayer+test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		FB83B99520C56A5700C665A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB83B9A320C56DB500C665A2 /* TCustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCustomAlertView.h; sourceTree = "<group>"; };
 		FB83B9A420C56DB500C665A2 /* TCustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCustomAlertView.m; sourceTree = "<group>"; };
+		FB83B9A720C6176500C665A2 /* CALayer+test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+test.h"; sourceTree = "<group>"; };
+		FB83B9A820C6176500C665A2 /* CALayer+test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+test.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,7 @@
 				FB83B97B20C56A5500C665A2 /* AppDelegate.m */,
 				FB83B97D20C56A5500C665A2 /* ViewController.h */,
 				FB83B97E20C56A5500C665A2 /* ViewController.m */,
+				FB83B9A620C6176500C665A2 /* testAnimation */,
 				FB83B9A220C56DB500C665A2 /* CustomAlertView */,
 				FB83B98020C56A5500C665A2 /* Main.storyboard */,
 				FB83B98320C56A5600C665A2 /* Assets.xcassets */,
@@ -146,6 +150,15 @@
 				FB83B9A420C56DB500C665A2 /* TCustomAlertView.m */,
 			);
 			path = CustomAlertView;
+			sourceTree = "<group>";
+		};
+		FB83B9A620C6176500C665A2 /* testAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				FB83B9A720C6176500C665A2 /* CALayer+test.h */,
+				FB83B9A820C6176500C665A2 /* CALayer+test.m */,
+			);
+			path = testAnimation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +363,7 @@
 				FB83B97F20C56A5500C665A2 /* ViewController.m in Sources */,
 				FB83B98A20C56A5600C665A2 /* main.m in Sources */,
 				FB83B97C20C56A5500C665A2 /* AppDelegate.m in Sources */,
+				FB83B9A920C6176500C665A2 /* CALayer+test.m in Sources */,
 				FB83B9A520C56DB500C665A2 /* TCustomAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

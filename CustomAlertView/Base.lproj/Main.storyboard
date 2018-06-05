@@ -19,11 +19,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvj-Pg-2Wy">
-                                <rect key="frame" x="155" y="280" width="46" height="30"/>
+                                <rect key="frame" x="153" y="280" width="51" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="custom"/>
                                 <connections>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eIS-1P-ljN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0H-26-Y0K">
+                                <rect key="frame" x="149" y="392" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="systtem"/>
+                                <connections>
+                                    <action selector="systemAlertAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LWD-MM-ieK"/>
                                 </connections>
                             </button>
                         </subviews>

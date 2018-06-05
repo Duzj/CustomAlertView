@@ -2,7 +2,7 @@
 //  TUserAlertView.h
 //  TUser
 //
-//  Created by 杜志坚 on 2018/5/30.
+//  Created by Duzj on 2018/5/30.
 //
 
 #import <UIKit/UIKit.h>

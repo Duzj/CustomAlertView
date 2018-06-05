@@ -2,7 +2,7 @@
 //  ViewController.m
 //  CustomAlertView
 //
-//  Created by 杜志坚 on 2018/6/4.
+//  Created by Duzj on 2018/6/4.
 //  Copyright © 2018年 dzj. All rights reserved.
 //
 
@@ -30,6 +30,19 @@
     [alert addAction:action];
     [alert show];
 }
+
+- (IBAction)systemAlertAction:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"fafa" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"fa" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
