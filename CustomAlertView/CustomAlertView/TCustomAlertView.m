@@ -192,28 +192,11 @@
     
     CGFloat contentLabelToTitleLabel = self.titleLabel.text.length ? 15 : 0;
     
-    if (self.titleLabel.text.length) {
-        UIView *lineView = [UIView new];
-        lineView.backgroundColor = [self colorWithRGBHex:0xE1E1E1 alpha:1.0];
-        [self addSubview:lineView];
-        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.mas_left);
-            make.right.equalTo(self.mas_right);
-            make.top.equalTo(self.titleLabel.mas_bottom).offset(5);
-            make.height.equalTo(@0.5);
-        }];
-        [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self);
-            make.width.equalTo(@(SCREEN_WIDTH-100 - 60));
-            make.top.equalTo(lineView.mas_bottom).offset(contentLabelToTitleLabel);
-        }];
-    }else{
-        [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self);
-            make.width.equalTo(@(SCREEN_WIDTH-100 - 60));
-            make.top.equalTo(self.titleLabel.mas_bottom).offset(contentLabelToTitleLabel);
-        }];
-    }
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self);
+        make.width.equalTo(@(SCREEN_WIDTH-100 - 60));
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(contentLabelToTitleLabel);
+    }];
     
     [super updateConstraints];
 }
