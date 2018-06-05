@@ -21,7 +21,7 @@
 }
 
 - (IBAction)btnAction:(id)sender {
-    TCustomAlertView *alert = [[TCustomAlertView alloc] initWithTitle:@"哈哈啊哈" message:nil];
+    TCustomAlertView *alert = [[TCustomAlertView alloc] initWithTitle:@"哈哈啊哈" message:@"大法师法发发"];
     TCustomAlertAction *cacelAction = [TCustomAlertAction actionWithTitle:@"取消" titleColor:[UIColor grayColor] handler:^(TCustomAlertAction *action) {
     }];
     TCustomAlertAction *action = [TCustomAlertAction actionWithTitle:@"确定" titleColor:[UIColor blueColor] handler:^(TCustomAlertAction *action) {
@@ -32,7 +32,7 @@
 }
 
 - (IBAction)systemAlertAction:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"fafa" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"fafa" message:@"发打发士大夫撒旦" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"fa" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }];

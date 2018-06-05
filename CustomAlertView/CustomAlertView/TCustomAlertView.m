@@ -44,7 +44,7 @@
 
 @property (nonatomic ,strong) UILabel *titleLabel;
 
-//@property (nonatomic ,strong) UILabel *contentLabel;
+@property (nonatomic ,strong) UILabel *contentLabel;
 
 @property (nonatomic ,strong) UIView *horizontalLine; //横线
 
@@ -63,10 +63,19 @@
         self.layer.cornerRadius = 8.0;
         self.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.titleLabel];
+        [self addSubview:self.contentLabel];
+
         [self addSubview:self.horizontalLine];
         [self setNeedsUpdateConstraints];
         
-        self.titleLabel.attributedText = [[NSAttributedString alloc] initWithString:title attributes:self.attributedText];
+        if ((title.length && (!message.length))) {
+            self.contentLabel.attributedText = [[NSAttributedString alloc] initWithString:title attributes:self.attributedText];
+        }else if (((!title.length)&&message.length)) {
+            self.contentLabel.attributedText = [[NSAttributedString alloc] initWithString:message attributes:self.attributedText];
+        }else{
+            self.titleLabel.attributedText = [[NSAttributedString alloc] initWithString:title attributes:self.attributedText];
+            self.contentLabel.attributedText = [[NSAttributedString alloc] initWithString:message attributes:self.attributedText];
+        }
     }
     return self;
 }
@@ -92,7 +101,11 @@
     
     CGSize titleSize = [self.titleLabel.text boundingRectWithSize:CGSizeMake((SCREEN_WIDTH-100 - 60), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:self.attributedText context:nil].size;
 
-    CGFloat height = 50 + titleSize.height + 50;
+    CGSize contentSize = [self.contentLabel.text boundingRectWithSize:CGSizeMake((SCREEN_WIDTH-100 - 60), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:self.attributedText context:nil].size;
+
+    CGFloat contentLabelToTitleLabel = self.titleLabel.text.length ? 15 : 0;
+    
+    CGFloat height = 50 + titleSize.height +contentLabelToTitleLabel + contentSize.height+ 50;
 
     self.bounds = CGRectMake(0, 0, SCREEN_WIDTH-100, height);
     self.center = keyWindow.center;
@@ -177,9 +190,30 @@
         make.top.equalTo(self.mas_top).offset(24);
     }];
     
-//    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//
-//    }];
+    CGFloat contentLabelToTitleLabel = self.titleLabel.text.length ? 15 : 0;
+    
+    if (self.titleLabel.text.length) {
+        UIView *lineView = [UIView new];
+        lineView.backgroundColor = [self colorWithRGBHex:0xE1E1E1 alpha:1.0];
+        [self addSubview:lineView];
+        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.mas_left);
+            make.right.equalTo(self.mas_right);
+            make.top.equalTo(self.titleLabel.mas_bottom).offset(5);
+            make.height.equalTo(@0.5);
+        }];
+        [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self);
+            make.width.equalTo(@(SCREEN_WIDTH-100 - 60));
+            make.top.equalTo(lineView.mas_bottom).offset(contentLabelToTitleLabel);
+        }];
+    }else{
+        [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self);
+            make.width.equalTo(@(SCREEN_WIDTH-100 - 60));
+            make.top.equalTo(self.titleLabel.mas_bottom).offset(contentLabelToTitleLabel);
+        }];
+    }
     
     [super updateConstraints];
 }
@@ -222,15 +256,15 @@
     return _attributedText;
 }
 
-//- (UILabel *)contentLabel{
-//    if (!_contentLabel) {
-//        _contentLabel = [[UILabel alloc]init];
-//        _contentLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17];
-//        _contentLabel.numberOfLines = 0;
-//        _contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
-//    }
-//    return _contentLabel;
-//}
+- (UILabel *)contentLabel{
+    if (!_contentLabel) {
+        _contentLabel = [[UILabel alloc]init];
+        _contentLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17];
+        _contentLabel.numberOfLines = 0;
+        _contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    }
+    return _contentLabel;
+}
 
 
 - (UIView *)horizontalLine{
